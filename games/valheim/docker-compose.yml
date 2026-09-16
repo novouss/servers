@@ -1,0 +1,39 @@
+services:
+  valheim:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: valheim-server
+    volumes:
+      - ./data:/irongate/data
+      - ./BepInEx:/irongate/BepInEx
+      - ./doorstop_libs:/irongate/doorstop_libs
+      - ./linux64:/irongate/linux64
+      - ./valheim_server_Data:/irongate/valheim_server_Data
+      - ./start_server_bepinex.sh:/irongate/start_server_bepinex.sh
+      - ./doorstop_config.ini:/irongate/doorstop_config.ini
+      - ./steam_appid.txt:/irongate/steam_appid.txt
+      - ./steamclient.so:/irongate/steamclient.so
+      - ./UnityPlayer.so:/irongate/UnityPlayer.so
+      - ./valheim_server.x86_64:/irongate/valheim_server.x86_64
+      - ./libdecor-0.so.0:/irongate/libdecor-0.so.0
+      - ./libdecor-cairo.so:/irongate/libdecor-cairo.so
+      - ./libsteamwebrtc.so:/irongate/libsteamwebrtc.so
+      - ./winhttp.dll:/irongate/winhttp.dll
+    ports:
+      - "2456:2456/udp"
+      - "2457:2457/udp"
+      - "2458:2458/udp"
+    environment:
+      - DOORSTOP_ENABLED=1
+      - DOORSTOP_TARGET_ASSEMBLY=./BepInEx/core/BepInEx.Preloader.dll
+      - LD_LIBRARY_PATH=./doorstop_libs:./linux64
+      - LD_PRELOAD=libdoorstop_x64.so
+      - SteamAppId=892970
+    working_dir: /irongate
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      [
+        'chmod +x start_server_bepinex.sh && ./valheim_server.x86_64 -name "The Basement" -port 2456 -world "Dedicated" -password "secret" -savedir "/irongate/data"',
+      ]
+    restart: unless-stopped

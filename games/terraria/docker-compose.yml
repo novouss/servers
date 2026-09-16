@@ -1,0 +1,14 @@
+services:
+  terraria-server:
+    build: .
+    container_name: terraria-server
+    ports:
+      - "7777:7777"
+    volumes:
+      - ./worlds:/root/.local/share/Terraria/Worlds
+    command: [
+      "-world", "/root/.local/share/Terraria/Worlds/bigger-and-boulder.wld"
+    ]
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

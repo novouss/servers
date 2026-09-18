@@ -34,6 +34,6 @@ services:
     entrypoint: ["/bin/sh", "-c"]
     command:
       [
-        'chmod +x start_server_bepinex.sh && ./valheim_server.x86_64 -name "Valheim" -port 2456 -world "Dedicated" -password "secret" -savedir "/irongate/data"',
+        'chmod +x valheim_server.x86_64 start_server_bepinex.sh && ./valheim_server.x86_64 -name "Valheim" -port 2456 -world "Dedicated" -password "secret" -savedir "/irongate/data"',
       ]
     restart: unless-stopped

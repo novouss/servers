@@ -1,11 +1,12 @@
 ## Setup
 
-> [WARN!]
+> [!WARNING]
 > You will need to have Valheim Dedicated Server (included after buying Valheim)
 
 ## Modifiers
 
 | Modifier     | Default                                         | Valid Values                                                                    |
+|---|---|---|
 | combat       | normal (100%)                                   | `veryeasy`, `easy`, `hard`, `veryhard`                                          |
 | deathpenalty | normal (5% skill loss)                          | `casual`, `veryeasy`, `easy`, `hard`, `hardcore`                                |
 | resources    | normal (1x)                                     | `muchless` (0.5x), `less` (0.75x), `more` (1.15x), `muchmore` (2x), `most` (3x) |

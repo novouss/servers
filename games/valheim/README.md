@@ -1,8 +1,5 @@
 ## Setup
 
-> [!WARNING]
-> You will need to have Valheim Dedicated Server (included after buying Valheim)
-
 ## Modifiers
 
 | Modifier     | Default                                         | Valid Values                                                                    |

@@ -1,4 +1,3 @@
-cat install_update_mod.sh 
 #!/bin/bash
 
 if [ -z "$1" ]; then
